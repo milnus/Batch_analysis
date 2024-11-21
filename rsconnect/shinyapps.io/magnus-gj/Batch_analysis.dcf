@@ -1,0 +1,12 @@
+name: Batch_analysis
+title: Batch_analysis
+username: magnus-gj
+account: magnus-gj
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 12551943
+bundleId: 9052158
+url: https://magnus-gj.shinyapps.io/Batch_analysis/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

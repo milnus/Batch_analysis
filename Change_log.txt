@@ -1,0 +1,3 @@
+Version	changes
+0.0.1	Initial implementation allowing analysis of batch growth using a spline integration. A plot of each growth and spline is given allowing to shows or hide raw od reading points
+0.0.2	Increase of the size allowed to be uploaded to the app. Maximum file size set to: options(shiny.maxRequestSize = 100*1024^2) (100 MB). This fix comes from: https://shiny.posit.co/r/articles/build/upload/
