@@ -1,4 +1,4 @@
-# Function to allow user to select pioreactors of interest
+# Function to allow user to select reactors of interest
 user_pio_selection <- function(read_data, reactor_selection){
   if(is.null(read_data)){return()}
   
