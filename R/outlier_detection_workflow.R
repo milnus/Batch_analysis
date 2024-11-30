@@ -1,5 +1,7 @@
 # Workflow to detect outliers in pioreactor data and return a list of growth data
 outlier_detection_workflow <- function(wide_pioreactor_od_frame){
+  if(is.null(wide_pioreactor_od_frame)){return()}
+  
   print("[START] peak_detection_workflow")
   
   od_columns <- 2:ncol(wide_pioreactor_od_frame)

@@ -1,7 +1,5 @@
 # Function to allow user to add tangent of max growth rate
 smoothing_slider <- function(spline_smoothing){
-  if(is.null(read_data)){return()}
-  
   sliderInput(
     inputId = "spline_smoothing",
     label = "Smoothing of the spline fitted to OD values",

@@ -1,7 +1,5 @@
 # Function to allow user to add tangent of max growth rate
 high_mu_range_slider <- function(spline_smoothing){
-  if(is.null(read_data)){return()}
-  
   sliderInput(
     inputId = "high_mu_percentage",
     label = "Define percentage of\nµmax considered as high",

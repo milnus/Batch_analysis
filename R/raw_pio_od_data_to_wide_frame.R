@@ -19,6 +19,8 @@ raw_pio_od_data_to_wide_frame <- function(od_readings_csv, reactors_oi = NULL){
                                                    idvar = 'hours', timevar = 'pioreactor_unit', direction = 'wide'))
   
   # Order reactor columns
+  print("ncol(pioreactor_OD_data_wide)")
+  print(ncol(pioreactor_OD_data_wide))
   column_order <- match(colnames(pioreactor_OD_data_wide)[2:ncol(pioreactor_OD_data_wide)], sort(colnames(pioreactor_OD_data_wide)[2:ncol(pioreactor_OD_data_wide)]))
   pioreactor_OD_data_wide <- pioreactor_OD_data_wide[,c(1, column_order+1)]
   pioreactor_OD_data_wide <- pioreactor_OD_data_wide[,sort(colnames(pioreactor_OD_data_wide))]

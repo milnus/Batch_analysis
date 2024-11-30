@@ -43,22 +43,24 @@ plot_growth_data <- function(fitted_growth_data_return, remove_points, add_tange
                      size = 3)
   
   # Add the remaining layers of the plot
-    p <- p + scale_y_continuous(limits = c(NA, NA)) +
-    geom_line(mapping =  aes(Time, Spline_OD, colour = Spline_growth_rate), lwd = 1) +
-    scale_color_gradient(name = "Growth\nrate", low = "blue", high = "orange") +
-    facet_wrap(. ~ Reactor) +
-    theme_light() +
-    theme(strip.background = element_rect(fill = "transparent", colour = "transparent"),
-          strip.text = element_text(colour = "black"))
-    labs(y = 'Density')
+    p <- p + 
+      scale_y_continuous(limits = c(0, NA)) +
+      scale_x_continuous(limits = c(0, NA)) +
+      geom_line(mapping =  aes(Time, Spline_OD, colour = Spline_growth_rate), lwd = 1) +
+      scale_color_gradient(name = "Growth\nrate", low = "blue", high = "orange") +
+      facet_wrap(. ~ Reactor) +
+      theme_light() +
+      theme(strip.background = element_rect(fill = "transparent", colour = "transparent"),
+            strip.text = element_text(colour = "black")) +
+      labs(y = 'Density', x = "Time")
   
     print(paste("add_tangent:", add_tangent))
-    if (add_tangent){
-      # Add tangent line
-      p <- p + geom_abline(data = max_growth_rate_df, mapping = aes(slope = Spline_growth_rate, intercept = - (Time * Spline_growth_rate) + Spline_OD), size = 0.8, alpha = 1.0)
-      # Add intersect point of tangent and line
-      p <- p + geom_point(data = max_growth_rate_df, mapping = aes(x = Time, y = Spline_OD), size = 0.8, alpha = 1.0, col = "red")
-    }  
+    # if (add_tangent){
+    #   # Add tangent line
+    #   p <- p + geom_abline(data = max_growth_rate_df, mapping = aes(slope = Spline_growth_rate, intercept = - (Time * Spline_growth_rate) + Spline_OD), size = 0.8, alpha = 1.0)
+    #   # Add intersect point of tangent and line
+    #   p <- p + geom_point(data = max_growth_rate_df, mapping = aes(x = Time, y = Spline_OD), size = 0.8, alpha = 1.0, col = "red")
+    # }  
   
     
   return(p)

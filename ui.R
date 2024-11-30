@@ -1,7 +1,9 @@
 library(shiny)
 library(ggplot2)
 library(ggprism)
-library(QurvE)
+library(stringr)
+
+# library(QurvE)
 options(shiny.maxRequestSize = 100*1024^2)
 
 fluidPage(
@@ -20,7 +22,7 @@ fluidPage(
     uiOutput("UserTangetAddition"),
     
     # Insert version text
-    div("version 0.0.3.1")
+    div("version 0.0.3.2")
   ),
   
   mainPanel(
@@ -29,6 +31,7 @@ fluidPage(
     downloadButton("download_growth_rate_plot", label = "Download Plot"),
     plotOutput("plot"),
     plotOutput("growth_rate_plot"),
+    plotOutput("log_plot"),
     # Add tabbox displaying the output plots where raw and used data are visualised.
     # It should be noted that if there are too few utilised data then the delta can be lowered.
     # Make possible to download the plots.
