@@ -4,15 +4,13 @@ library(ggprism)
 library(stringr)
 
 # library(QurvE)
-options(shiny.maxRequestSize = 100*1024^2)
+options(shiny.maxRequestSize = 100 * 1024^2)
 
 fluidPage(
-  
   titlePanel("Batch growth analysis"),
-  
   sidebarPanel(
-    fileInput('upload', label = 'PioReactor OD table'),
-    radioButtons('filt_strat', label = "Filtering strategy", choices = c('Remove', 'Keep')),
+    fileInput("upload", label = "PioReactor OD table"),
+    radioButtons("filt_strat", label = "Filtering strategy", choices = c("Remove", "Keep")),
     uiOutput("UserFilters"),
     uiOutput("UserSplineSmoothing"),
     uiOutput("UserHighMuPercentage"),
@@ -20,14 +18,12 @@ fluidPage(
     actionButton("process", "Process data"),
     uiOutput("UserPointRemoval"),
     uiOutput("UserTangetAddition"),
-    
+
     # Insert version text
     div("version 0.0.3.2")
   ),
-  
   mainPanel(
-    plotOutput('raw_data_plot'),
-    
+    plotOutput("raw_data_plot"),
     downloadButton("download_growth_rate_plot", label = "Download Plot"),
     plotOutput("plot"),
     plotOutput("growth_rate_plot"),
